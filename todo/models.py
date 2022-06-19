@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-from datetime import datetime
+from django.utils import timezone
 
 
 class Author(models.Model):
@@ -15,7 +15,7 @@ class Todo(models.Model):
     content = models.CharField(max_length=255)
     completed = models.BooleanField(default=False)
     reminder = models.BooleanField(default=False)
-    created_at = models.DateTimeField(auto_now_add=False, default=datetime.now)
+    created_at = models.DateTimeField(auto_now_add=False, default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
